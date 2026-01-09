@@ -1,66 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Security Breach</title>
+    <title>⚠️ WARNING: SYSTEM BREACH ⚠️</title>
     <style>
         body {
             background-color: #000;
-            color: #1aff1a;
+            color: #ff0000; /* لون أحمر للتحذير */
             font-family: 'Courier New', monospace;
             margin: 0;
             padding: 20px;
             overflow: hidden;
-            font-weight: bold;
         }
+        .main-warning {
+            font-size: 28px;
+            text-align: center;
+            border: 3px double #ff0000;
+            padding: 15px;
+            margin-bottom: 30px;
+            animation: blink 0.8s infinite;
+        }
+        @keyframes blink { 50% { border-color: transparent; color: transparent; } }
+        
         #console {
-            line-height: 1.5;
-            font-size: 14px;
+            color: #1aff1a; /* لون أخضر للأوامر */
+            font-size: 16px;
+            line-height: 1.6;
         }
-        .error { color: red; }
-        .success { color: #1aff1a; }
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        .loading-bar { color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
+
+    <div class="main-warning">
+        ⚠️ تنبيه: جاري سحب الصور والملفات من الجهاز... ⚠️
+    </div>
+
     <div id="console"></div>
 
     <script>
         const commands = [
-            "> Connecting to gateway 192.168.1.1...",
-            "> Connection established!",
-            "> Brute forcing admin password...",
-            "> Password found: ***********",
-            "> Accessing local storage /Android/Data/...",
-            "> Searching for hidden images (.jpg, .png, .mp4)...",
-            "> [FOUND] 1,432 files detected.",
-            "> INITIALIZING DATA TRANSFER...",
-            "> PROGRESS: 12%",
-            "> PROGRESS: 48%",
-            "> PROGRESS: 89%",
-            "> [CRITICAL] BYPASSING GOOGLE CLOUD SECURITY...",
-            "> ALL FILES UPLOADED TO REMOTE SERVER: 45.122.1.9",
-            "> SHUTTING DOWN SYSTEM TRACES...",
-            "> SYSTEM COMPROMISED. <span class='blink'>_</span>"
+            "> تم اختراق جدار الحماية...",
+            "> الوصول إلى ذاكرة التخزين الداخلية...",
+            "> جاري فحص مجلد الصور (DCIM)...",
+            "> تم العثور على 1542 صورة.",
+            "> جاري سحب الملفات الشخصية الآن...",
+            "<span class='loading-bar'>[||||||||||----------] 50%</span>",
+            "<span class='loading-bar'>[||||||||||||||||----] 85%</span>",
+            "<span class='loading-bar'>[||||||||||||||||||||] 100%</span>",
+            "> تم رفع الصور بنجاح إلى السيرفر الرئيسي.",
+            "> جاري مسح آثار الدخول...",
+            "> اكتملت العملية. سيتم إغلاق الجهاز."
         ];
 
         let i = 0;
-        const consoleDiv = document.getElementById('console');
-
-        function typeCommand() {
+        function typeWriter() {
             if (i < commands.length) {
-                let p = document.createElement('p');
+                const p = document.createElement('p');
                 p.innerHTML = commands[i];
-                consoleDiv.appendChild(p);
+                document.getElementById('console').appendChild(p);
                 i++;
-                // سرعة الكتابة لتشبه البرامج الحقيقية
-                setTimeout(typeCommand, 800); 
-                window.scrollTo(0, document.body.scrollHeight);
+                setTimeout(typeWriter, 1200);
             }
         }
-        window.onload = typeCommand;
+        window.onload = typeWriter;
     </script>
 </body>
 </html>

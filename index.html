@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>⚠️ WARNING ⚠️</title>
+    <style>
+        body {
+            background-color: black;
+            color: #0f0; /* اللون الأخضر الشهير للمخترقين */
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .warning-text {
+            font-size: 30px;
+            text-align: center;
+            border: 2px solid #0f0;
+            padding: 20px;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        .details {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="warning-text">
+        جاري سحب الصور والبيانات... 100%
+    </div>
+
+    <div class="details">
+        <p>> Connecting to server... DONE</p>
+        <p>> Bypassing firewall... DONE</p>
+        <p>> Accessing Gallery... SUCCESS</p>
+        <p>> Downloading memories... ERROR: JUST KIDDING! 😂</p>
+    </div>
+
+    <script>
+        // حركة بسيطة لإظهار رسالة بعد 5 ثواني
+        setTimeout(() => {
+            alert("تم مقلبك بنجاح! لا تدخل على روابط مجهولة مرة أخرى 😉");
+        }, 5000);
+    </script>
+</body>
+</html>

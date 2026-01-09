@@ -1,56 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>⚠️ WARNING ⚠️</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Security Breach</title>
     <style>
         body {
-            background-color: black;
-            color: #0f0; /* اللون الأخضر الشهير للمخترقين */
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: #000;
+            color: #1aff1a;
+            font-family: 'Courier New', monospace;
             margin: 0;
-            overflow: hidden;
-        }
-        .warning-text {
-            font-size: 30px;
-            text-align: center;
-            border: 2px solid #0f0;
             padding: 20px;
-            animation: blink 1s infinite;
+            overflow: hidden;
+            font-weight: bold;
         }
-        @keyframes blink {
-            50% { opacity: 0; }
+        #console {
+            line-height: 1.5;
+            font-size: 14px;
         }
-        .details {
-            margin-top: 20px;
-            font-size: 18px;
-        }
+        .error { color: red; }
+        .success { color: #1aff1a; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
-
-    <div class="warning-text">
-        جاري سحب الصور والبيانات... 100%
-    </div>
-
-    <div class="details">
-        <p>> Connecting to server... DONE</p>
-        <p>> Bypassing firewall... DONE</p>
-        <p>> Accessing Gallery... SUCCESS</p>
-        <p>> Downloading memories... ERROR: JUST KIDDING! 😂</p>
-    </div>
+    <div id="console"></div>
 
     <script>
-        // حركة بسيطة لإظهار رسالة بعد 5 ثواني
-        setTimeout(() => {
-            alert("تم مقلبك بنجاح! لا تدخل على روابط مجهولة مرة أخرى 😉");
-        }, 5000);
+        const commands = [
+            "> Connecting to gateway 192.168.1.1...",
+            "> Connection established!",
+            "> Brute forcing admin password...",
+            "> Password found: ***********",
+            "> Accessing local storage /Android/Data/...",
+            "> Searching for hidden images (.jpg, .png, .mp4)...",
+            "> [FOUND] 1,432 files detected.",
+            "> INITIALIZING DATA TRANSFER...",
+            "> PROGRESS: 12%",
+            "> PROGRESS: 48%",
+            "> PROGRESS: 89%",
+            "> [CRITICAL] BYPASSING GOOGLE CLOUD SECURITY...",
+            "> ALL FILES UPLOADED TO REMOTE SERVER: 45.122.1.9",
+            "> SHUTTING DOWN SYSTEM TRACES...",
+            "> SYSTEM COMPROMISED. <span class='blink'>_</span>"
+        ];
+
+        let i = 0;
+        const consoleDiv = document.getElementById('console');
+
+        function typeCommand() {
+            if (i < commands.length) {
+                let p = document.createElement('p');
+                p.innerHTML = commands[i];
+                consoleDiv.appendChild(p);
+                i++;
+                // سرعة الكتابة لتشبه البرامج الحقيقية
+                setTimeout(typeCommand, 800); 
+                window.scrollTo(0, document.body.scrollHeight);
+            }
+        }
+        window.onload = typeCommand;
     </script>
 </body>
 </html>
